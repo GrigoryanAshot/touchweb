@@ -1,0 +1,42 @@
+═══════════════════════════════════════
+DISABLE CSS AUTOCOMPLETE FOR VIDEO RECORDING
+═══════════════════════════════════════
+
+QUICK FIX (Temporary - Just for your video):
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Press ESC when suggestions appear to close them
+OR
+Press Ctrl+Space to toggle suggestions off while typing
+
+PERMANENT FIX (Disable CSS IntelliSense):
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Press Ctrl+Shift+P
+2. Type: "Preferences: Open User Settings (JSON)"
+3. Add this code:
+
+{
+    "[css]": {
+        "editor.quickSuggestions": false,
+        "editor.suggestOnTriggerCharacters": false,
+        "editor.wordBasedSuggestions": false,
+        "css.validate": false
+    }
+}
+
+OR DISABLE FOR ALL FILES:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+{
+    "editor.quickSuggestions": {
+        "other": false,
+        "comments": false,
+        "strings": false
+    },
+    "editor.suggestOnTriggerCharacters": false,
+    "editor.wordBasedSuggestions": false
+}
+
+═══════════════════════════════════════
+END
+═══════════════════════════════════════

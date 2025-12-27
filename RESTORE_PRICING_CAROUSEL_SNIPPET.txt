@@ -1,0 +1,13 @@
+Place these lines back into `css/style.css` inside the `.pricing-block-carousel-item { ... }` block (right after the opening brace). That block starts around the pricing carousel styles near `/* 3D Carousel Container */`.
+.pricing-block-carousel-item {
+    position: absolute;
+    width: 350px;
+    left: 50%;
+    top: 50%;
+    margin-left: -175px;
+    margin-top: -250px;
+    transform-style: preserve-3d;
+    transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    opacity: 0.6;
+    pointer-events: none;
+}
