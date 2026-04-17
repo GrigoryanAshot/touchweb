@@ -2633,6 +2633,11 @@ blockquote {
     z-index: 2;
 }
 
+/* Hide prices only in the 3D slider cards */
+.pricing-carousel-3d .pricing .price {
+    display: none;
+}
+
 .price {
     display: block;
     font-size: 48px;

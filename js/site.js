@@ -120,6 +120,38 @@ function updatePageLanguage() {
 	$('[data-translate="about.inNumbers.yearsNumber"]').text(t.about.inNumbers.yearsNumber);
 	$('[data-translate="about.inNumbers.years"]').text(t.about.inNumbers.years);
 	$('[data-translate="about.inNumbers.focus"]').text(t.about.inNumbers.focus);
+
+	// Showcase sections (home and portfolio pages)
+	if (t.showcase) {
+		$('[data-translate="showcase.tech.title"]').text(t.showcase.tech.title);
+		$('[data-translate="showcase.tech.heading"]').text(t.showcase.tech.heading);
+		$('[data-translate="showcase.tech.subtitle"]').text(t.showcase.tech.subtitle);
+		$('[data-translate="showcase.tech.frontend.title"]').text(t.showcase.tech.frontend.title);
+		$('[data-translate="showcase.tech.frontend.desc"]').text(t.showcase.tech.frontend.desc);
+		$('[data-translate="showcase.tech.backend.title"]').text(t.showcase.tech.backend.title);
+		$('[data-translate="showcase.tech.backend.desc"]').text(t.showcase.tech.backend.desc);
+		$('[data-translate="showcase.tech.data.title"]').text(t.showcase.tech.data.title);
+		$('[data-translate="showcase.tech.data.desc"]').text(t.showcase.tech.data.desc);
+		$('[data-translate="showcase.tech.quality.title"]').text(t.showcase.tech.quality.title);
+		$('[data-translate="showcase.tech.quality.desc"]').text(t.showcase.tech.quality.desc);
+
+		$('[data-translate="showcase.projects.title"]').text(t.showcase.projects.title);
+		$('[data-translate="showcase.projects.heading"]').text(t.showcase.projects.heading);
+		$('[data-translate="showcase.projects.subtitle"]').text(t.showcase.projects.subtitle);
+		$('[data-translate="showcase.projects.preview"]').text(t.showcase.projects.preview);
+		$('[data-translate="showcase.projects.comingSoon"]').text(t.showcase.projects.comingSoon);
+		$('[data-translate="showcase.projects.completed"]').text(t.showcase.projects.completed);
+		$('[data-translate="showcase.projects.pending"]').text(t.showcase.projects.pending);
+		$('[data-translate="showcase.projects.showMoreWorks"]').text(t.showcase.projects.showMoreWorks);
+	}
+
+	// Portfolio CTA (portfolio page)
+	if (t.portfolioCta) {
+		$('[data-translate="portfolioCta.title"]').text(t.portfolioCta.title);
+		$('[data-translate="portfolioCta.heading"]').text(t.portfolioCta.heading);
+		$('[data-translate="portfolioCta.subtitle"]').text(t.portfolioCta.subtitle);
+		$('[data-translate="portfolioCta.button"]').text(t.portfolioCta.button);
+	}
 	
 	// Update services section
 	$('[data-translate="services.testimonial"]').text(t.services.testimonial);

@@ -120,6 +120,45 @@ const translations = {
                 focus: "Focus on quality & support"
             }
         },
+        showcase: {
+            tech: {
+                title: "TECH STACK",
+                heading: "Hand-crafted code with modern technologies",
+                subtitle: "We build every project from scratch using clean, maintainable code - no WordPress themes, no drag-and-drop page builders.",
+                frontend: {
+                    title: "Frontend",
+                    desc: "HTML5, CSS3, modern JavaScript (ES6+), React, Vue.js, Angular, Next.js and other leading UI frameworks and libraries."
+                },
+                backend: {
+                    title: "Backend",
+                    desc: "Node.js (Express, NestJS), Python (Django, Flask, FastAPI), PHP (Laravel, Symfony) and REST/GraphQL APIs tailored to your project."
+                },
+                data: {
+                    title: "Data & Infrastructure",
+                    desc: "SQL and NoSQL databases, caching, authentication, and cloud hosting on platforms like AWS, Azure, and others."
+                },
+                quality: {
+                    title: "Quality & Performance",
+                    desc: "Responsive layouts, accessibility, performance optimization, SEO-ready markup, and long-term maintainability built into every project."
+                }
+            },
+            projects: {
+                title: "PROJECTS",
+                heading: "Examples of what we build",
+                subtitle: "A quick overview of typical projects we create. Each one is fully custom-coded, without templates or page builders.",
+                preview: "Preview",
+                comingSoon: "Coming Soon",
+                completed: "Completed",
+                pending: "Pending",
+                showMoreWorks: "Show More Works"
+            }
+        },
+        portfolioCta: {
+            title: "READY TO START?",
+            heading: "Let's add your project to this portfolio",
+            subtitle: "Whether you need a new website, a redesign, or a custom web application, we're here to help you build something great.",
+            button: "START YOUR PROJECT"
+        },
         // Services Section
         services: {
             testimonial: "Touch Web Agency transformed our online presence. Their expertise and professionalism exceeded our expectations.",
@@ -273,7 +312,7 @@ const translations = {
             subtitle: "Մենք առաջատար վեբ մշակման գործակալություն ենք Հայաստանում, մասնագիտանում ենք ժամանակակից, ադապտիվ և բարձր արտադրողականությամբ կայքերի և վեբ հավելվածների ստեղծման մեջ:",
             html5: {
                 title: "Ժամանակակից տեխնոլոգիաներ",
-                desc: "Մենք օգտագործում ենք վեբ տեխնոլոգիաների վերջին նվաճումները, ներառյալ HTML5, CSS3, JavaScript և ժամանակակից շրջանակներ՝ նորարարական լուծումներ ստեղծելու համար:"
+                desc: "Մենք կիրառում ենք ժամանակակից վեբ տեխնոլոգիաներ՝ HTML5, CSS3, JavaScript և շրջանակներ՝ նորարարական լուծումների համար:"
             },
             easy: {
                 title: "Օգտագործողի համար հարմար դիզայն",
@@ -285,18 +324,18 @@ const translations = {
             },
             rocket: {
                 title: "Արագ աշխատանք",
-                desc: "Մենք օպտիմալացնում ենք յուրաքանչյուր կայք արագության և արտադրողականության համար, ապահովելով արագ բեռնման ժամանակներ և գերազանց օգտագործողի փորձ:"
+                desc: "Մենք օպտիմալացնում ենք կայքերը՝ բարձր արագություն, կարճ բեռնման ժամանակ և հարթ օգտագործողի փորձ ապահովելու համար:"
             },
             techStack: {
                 title: "ՏԵԽՆՈԼՈԳԻԱՆԵՐ",
                 heading: "Տեխնոլոգիաները, որոնք մենք օգտագործում ենք զրոյից կառուցելու համար",
                 subtitle: "Ոչ WordPress, ոչ էջերի կառուցիչներ: Մենք գրում ենք ձեռքով գրված կոդ՝ օգտագործելով ժամանակակից frontend և backend տեխնոլոգիաներ՝ հարմարեցված յուրաքանչյուր նախագծի համար:",
                 frontend: {
-                    title: "Frontend",
+                    title: "Ֆրոնթենդ",
                     desc: "HTML5, CSS3, ժամանակակից JavaScript (ES6+), React, Vue.js, Angular, Next.js և այլ առաջատար UI շրջանակներ և գրադարաններ:"
                 },
                 backend: {
-                    title: "Backend",
+                    title: "Բեքենդ",
                     desc: "Node.js (Express, NestJS), Python (Django, Flask, FastAPI), PHP (Laravel, Symfony) և REST/GraphQL API-ներ մասշտաբավորվող, անվտանգ հավելվածների համար:"
                 },
                 data: {
@@ -368,6 +407,45 @@ const translations = {
                 focus: "Կենտրոնացում որակի և աջակցության վրա"
             }
         },
+        showcase: {
+            tech: {
+                title: "ՏԵԽՆՈԼՈԳԻԱՆԵՐ",
+                heading: "Ժամանակակից տեխնոլոգիաներով ձեռագիր կոդ",
+                subtitle: "Մենք յուրաքանչյուր նախագիծը կառուցում ենք զրոյից՝ մաքուր, պահպանելի կոդով՝ առանց WordPress թեմաների և drag-and-drop էջի կառուցողների։",
+                frontend: {
+                    title: "Ֆրոնթենդ",
+                    desc: "HTML5, CSS3, ժամանակակից JavaScript (ES6+), React, Vue.js, Angular, Next.js և այլ առաջատար UI շրջանակներ ու գրադարաններ։"
+                },
+                backend: {
+                    title: "Բեքենդ",
+                    desc: "Node.js (Express, NestJS), Python (Django, Flask, FastAPI), PHP (Laravel, Symfony) և REST/GraphQL API-ներ՝ հարմարեցված ձեր նախագծին։"
+                },
+                data: {
+                    title: "Տվյալներ և ենթակառուցվածք",
+                    desc: "SQL և NoSQL տվյալների բազաներ, քեշավորում, նույնականացում և ամպային հոսթինգ՝ AWS, Azure և այլ հարթակներում։"
+                },
+                quality: {
+                    title: "Որակ և արտադրողականություն",
+                    desc: "Ադապտիվ դասավորություն, մատչելիություն, արագության օպտիմալացում, SEO-պատրաստ նշագրում և երկարաժամկետ պահպանելիություն՝ յուրաքանչյուր նախագծում։"
+                }
+            },
+            projects: {
+                title: "ՆԱԽԱԳԾԵՐ",
+                heading: "Օրինակներ, թե ինչ ենք մենք ստեղծում",
+                subtitle: "Մեր ստեղծած նախագծերի կարճ ակնարկ։ Յուրաքանչյուրը ամբողջությամբ գրվում է զրոյից՝ առանց պատրաստի շաբլոնների կամ էջի կառուցողների։",
+                preview: "Նախադիտում",
+                comingSoon: "Շուտով",
+                completed: "Ավարտված",
+                pending: "Ընթացքում",
+                showMoreWorks: "Տեսնել ավելի շատ աշխատանքներ"
+            }
+        },
+        portfolioCta: {
+            title: "ՊԱՏՐԱՍՏ ԵՔ ՍԿՍԵԼՈՒ՞",
+            heading: "Ավելացնենք նաև ձեր նախագիծը այս պորտֆոլիոյում",
+            subtitle: "Անկախ նրանից՝ պետք է նոր կայք, վերադիզայն, թե անհատական վեբ հավելված, մենք այստեղ ենք՝ ձեզ համար հզոր լուծում ստեղծելու։",
+            button: "ՍԿՍԵՔ ՁԵՐ ՆԱԽԱԳԻԾԸ"
+        },
         // Services Section
         services: {
             testimonial: "Touch Web Agency-ն փոխակերպեց մեր առցանց ներկայությունը: Նրանց փորձառությունը և պրոֆեսիոնալիզմը գերազանցեցին մեր ակնկալիքները:",
@@ -406,6 +484,7 @@ const translations = {
         pricing: {
             title: "ՁԵՐ ԸՆՏՐՈՒԹՅՈՒՆԸ",
             heading: "Մենք ունենք ձեզ համար ճիշտ փաթեթ",
+            subtitle: "Ընտրեք ձեր բիզնեսի համար իդեալական լուծումը",
             startingFrom: "Սկսած",
             landing: {
                 name: "Լենդինգ էջեր",
@@ -614,6 +693,45 @@ const translations = {
                 years: "Поддержка доступна",
                 focus: "Фокус на качестве и поддержке"
             }
+        },
+        showcase: {
+            tech: {
+                title: "ТЕХНОЛОГИИ",
+                heading: "Ручной код на современных технологиях",
+                subtitle: "Мы создаем каждый проект с нуля, используя чистый и поддерживаемый код - без WordPress-тем и drag-and-drop конструкторов страниц.",
+                frontend: {
+                    title: "Frontend",
+                    desc: "HTML5, CSS3, современный JavaScript (ES6+), React, Vue.js, Angular, Next.js и другие ведущие UI фреймворки и библиотеки."
+                },
+                backend: {
+                    title: "Backend",
+                    desc: "Node.js (Express, NestJS), Python (Django, Flask, FastAPI), PHP (Laravel, Symfony) и REST/GraphQL API, адаптированные под ваш проект."
+                },
+                data: {
+                    title: "Данные и инфраструктура",
+                    desc: "SQL и NoSQL базы данных, кэширование, аутентификация и облачный хостинг на платформах AWS, Azure и других."
+                },
+                quality: {
+                    title: "Качество и производительность",
+                    desc: "Адаптивная верстка, доступность, оптимизация скорости, SEO-готовая разметка и долгосрочная поддерживаемость в каждом проекте."
+                }
+            },
+            projects: {
+                title: "ПРОЕКТЫ",
+                heading: "Примеры того, что мы создаем",
+                subtitle: "Краткий обзор типичных проектов, которые мы делаем. Каждый из них полностью пишется с нуля, без шаблонов и конструкторов страниц.",
+                preview: "Предпросмотр",
+                comingSoon: "Скоро",
+                completed: "Завершен",
+                pending: "В процессе",
+                showMoreWorks: "Показать больше работ"
+            }
+        },
+        portfolioCta: {
+            title: "ГОТОВЫ НАЧАТЬ?",
+            heading: "Добавим и ваш проект в это портфолио",
+            subtitle: "Нужен новый сайт, редизайн или индивидуальное веб-приложение - мы поможем вам создать отличное решение.",
+            button: "НАЧАТЬ ПРОЕКТ"
         },
         // Services Section
         services: {
