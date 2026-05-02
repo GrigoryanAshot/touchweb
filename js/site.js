@@ -154,8 +154,6 @@ function updatePageLanguage() {
 	}
 	
 	// Update services section
-	$('[data-translate="services.testimonial"]').text(t.services.testimonial);
-	$('[data-translate="services.author"]').text(t.services.author);
 	$('[data-translate="services.title"]').text(t.services.title);
 	$('[data-translate="services.heading"]').text(t.services.heading);
 	$('[data-translate="services.subtitle"]').text(t.services.subtitle);
@@ -322,22 +320,72 @@ $(document).ready(function () {
 		$.scrollUp();
 	}
 
-	/*Responsive Navigation*/
-	$("#nav-mobile").html($("#nav-main").html());
-	$("#nav-trigger span").on("click",function() {
-		if ($("nav#nav-mobile ul").hasClass("expanded")) {
-			$("nav#nav-mobile ul.expanded").removeClass("expanded").slideUp(250);
+	/* Responsive navigation: panel = menu + social (mobile); desktop keeps social in aside */
+	var navMobileLayoutTimer;
+	function layoutHeaderSocialAndNavMobile() {
+		var $nm = $("#nav-mobile");
+		var $aside = $("#header aside");
+		if (!$nm.length || !$aside.length) {
+			setActiveNavLink();
+			return;
+		}
+		var isDesktop = window.matchMedia("(min-width: 768px)").matches;
+		var $panel = $nm.find(".nav-mobile-panel");
+		var $socialFromDrawer = $panel.find("> ul.social-icons").detach();
+		var $social = $socialFromDrawer.length ? $socialFromDrawer : $();
+
+		if (!$panel.length) {
+			$nm.empty().append('<div class="nav-mobile-panel"></div>');
+			$panel = $nm.find(".nav-mobile-panel");
+		}
+
+		$panel.removeClass("expanded").stop(true, true).hide().removeAttr("style");
+		$("#nav-trigger span").removeClass("open");
+
+		$panel.html($("#nav-main").html());
+
+		if (!isDesktop) {
+			if (!$social.length) {
+				var $asideSoc = $aside.find("> ul.social-icons");
+				if ($asideSoc.length) {
+					$social = $asideSoc.detach();
+				}
+			}
+			if ($social.length) {
+				$panel.append($social);
+			}
+		} else if ($social.length) {
+			$aside.append($social);
+		}
+
+		setActiveNavLink();
+	}
+
+	layoutHeaderSocialAndNavMobile();
+
+	$(window).on("resize", function () {
+		clearTimeout(navMobileLayoutTimer);
+		navMobileLayoutTimer = setTimeout(layoutHeaderSocialAndNavMobile, 200);
+	});
+
+	$("#nav-trigger span").on("click", function () {
+		var $panel = $("nav#nav-mobile .nav-mobile-panel");
+		if (!$panel.length) {
+			return;
+		}
+		if ($panel.hasClass("expanded")) {
+			$panel.removeClass("expanded").slideUp(250);
 			$(this).removeClass("open");
 		} else {
-			$("nav#nav-mobile ul").addClass("expanded").slideDown(250);
+			$panel.addClass("expanded").slideDown(250);
 			$(this).addClass("open");
 		}
 	});
 
-	$("#nav-mobile").html($("#nav-main").html());
-	$("#nav-mobile ul a").on("click",function() {
-		if ($("nav#nav-mobile ul").hasClass("expanded")) {
-			$("nav#nav-mobile ul.expanded").removeClass("expanded").slideUp(250);
+	$("#nav-mobile").on("click", "a", function () {
+		var $panel = $("nav#nav-mobile .nav-mobile-panel");
+		if ($panel.length && $panel.hasClass("expanded")) {
+			$panel.removeClass("expanded").slideUp(250);
 			$("#nav-trigger span").removeClass("open");
 		}
 	});
@@ -355,9 +403,6 @@ $(document).ready(function () {
 		}, 1000);
 	}
 
-	// Set active nav link on page load
-	setActiveNavLink();
-
 	/* Clients Carousel - Enhanced with JavaScript for seamless loop */
 	function initClientsCarousel() {
 		var $carousel = $('.clients-carousel');
@@ -366,56 +411,70 @@ $(document).ready(function () {
 			if (items.length > 0) {
 				var $wrapper = $carousel.parent();
 				
+				function visibleSlotsForClientsCarousel(containerWidth) {
+					if (containerWidth < 400) {
+						return 3;
+					}
+					if (containerWidth < 560) {
+						return 3.5;
+					}
+					if (containerWidth < 768) {
+						return 4;
+					}
+					if (containerWidth < 1024) {
+						return 5;
+					}
+					return 8;
+				}
+
 				function calculateAndSetWidths() {
 					var containerWidth = $wrapper.width();
-					if (containerWidth === 0) return; // Not ready yet
-					
-					// Set item width to 12.5% of container (8 items visible)
-					var itemWidth = containerWidth * 0.125; // 12.5%
+					if (containerWidth === 0) {
+						return;
+					}
+
+					var visibleSlots = visibleSlotsForClientsCarousel(containerWidth);
+					var itemWidth = containerWidth / visibleSlots;
+
 					items.css({
 						'flex': '0 0 ' + itemWidth + 'px',
 						'width': itemWidth + 'px'
 					});
-					
-					// Set carousel width to accommodate all items
+
 					var totalItems = items.length;
 					var carouselWidth = itemWidth * totalItems;
 					$carousel.css('width', carouselWidth + 'px');
-					
-					// Calculate animation distance (exactly 10 items = 125% of container)
-					var animationDistance = containerWidth * 1.25; // 125% = 10 items
-					
-					// Update animation to move exactly this distance
-					var animationDuration = 10; // seconds
+
+					/* One loop segment = 10 unique logos (HTML duplicates the set) */
+					var brandsPerLoop = 10;
+					var animationDistance = brandsPerLoop * itemWidth;
+
+					var animationDuration = visibleSlots <= 4 ? 14 : visibleSlots <= 5 ? 12 : 10;
+
 					var keyframes = '@keyframes slide { ' +
 						'0% { transform: translateX(0); } ' +
 						'100% { transform: translateX(-' + animationDistance + 'px); } ' +
-					'}';
-					
-					// Remove old style if exists
+						'}';
+
 					$('#carousel-keyframes').remove();
-					
-					// Add new keyframes
 					$('<style id="carousel-keyframes">' + keyframes + '</style>').appendTo('head');
-					
-					console.log('=== CAROUSEL RECALCULATED ===');
-					console.log('Container width:', containerWidth, 'px');
-					console.log('Item width:', itemWidth, 'px');
-					console.log('Carousel width:', carouselWidth, 'px');
-					console.log('Animation distance:', animationDistance, 'px (10 items)');
-					console.log('Items per visible set: 8');
-			}
-				
-				// Calculate on load and resize
-				calculateAndSetWidths();
-				$(window).on('resize', function() {
+
+					return animationDuration;
+				}
+
+				function applyClientsCarouselLayout() {
+					var durationSec = calculateAndSetWidths();
+					if (durationSec) {
+						$carousel.css('animation', 'slide ' + durationSec + 's linear infinite');
+					}
+				}
+
+				applyClientsCarouselLayout();
+				$(window).on('resize', function () {
 					$carousel.css('animation', 'none');
-					setTimeout(function() {
-						calculateAndSetWidths();
-						setTimeout(function() {
-							$carousel.css('animation', 'slide ' + 10 + 's linear infinite');
-						}, 50);
-					}, 10);
+					setTimeout(function () {
+						applyClientsCarouselLayout();
+					}, 50);
 				});
 			}
 		}

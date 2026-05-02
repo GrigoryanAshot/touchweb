@@ -9,7 +9,7 @@
     <!--Meta Keywords and Description-->
     <meta name="keywords" content="web development, web design, Armenia, Touch Web Agency, website development, responsive design">
     <meta name="description" content="Touch Web Agency - Professional web development services. We create modern, responsive websites and web applications.">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
 
     <!--Favicon-->
     <link rel="shortcut icon" href="images/favicon.ico" title="Favicon"/>
@@ -19,6 +19,9 @@
 
     <!-- Touch Color CSS -->
     <link rel="stylesheet" href="css/touch-color.css">
+
+    <!-- Mobile-first fluid responsive -->
+    <link rel="stylesheet" href="css/fluid-responsive.css">
 
     <!--Icon Fonts - Font Awesome Icons-->
     <link rel="stylesheet" href="css/font-awesome.min.css">
@@ -50,7 +53,7 @@
 
 <div id="wrapper">
 
-    <header id="banner" class="scrollto clearfix" data-enllax-ratio=".5" style="background-image: url('images/banner-images/banner-main.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+    <header id="banner" class="scrollto clearfix banner-main" data-enllax-ratio=".5" style="background-image: url('images/banner-images/banner-main.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
         <div id="header" class="nav-collapse">
             <div class="row clearfix">
                 <div class="col-1">
@@ -450,7 +453,7 @@
 
             </div>
             
-            <div class="row clearfix text-center" style="margin-top: 20px;">
+            <div class="row clearfix text-center section-cta-row">
                 <a href="portfolio.html" class="button">
                     <span data-translate="showcase.projects.showMoreWorks">Show More Works</span>
                 </a>
@@ -465,21 +468,8 @@
             <div class="row no-padding-bottom clearfix">
 
 
-                <!--Content Left Side-->
-                <div class="col-3">
-                    <!--User Testimonial-->
-                    <blockquote class="testimonial text-right bigtest">
-                        <q data-translate="services.testimonial">Touch Web Agency transformed our online presence. Their expertise and professionalism exceeded our expectations.</q>
-                        <footer data-translate="services.author">— Client Name, Satisfied Customer</footer>
-                    </blockquote>
-                    <!-- End of Testimonial-->
-
-                </div>
-                <!--End Content Left Side-->
-
-                <!--Content of the Right Side-->
-                
-                <div class="col-3">
+                <!-- Services copy -->
+                <div class="col-2-3">
                     <div class="section-heading">
                         <h3 data-translate="services.title">BELIEVING</h3>
                         <h2 class="section-title" data-translate="services.heading">Focusing On What Matters Most</h2>
@@ -770,19 +760,25 @@
 
                 <!-- Contact Info -->
                 <div class="footer-col footer-contact">
-                    <h4>Get In Touch</h4>
+                    <h4 data-translate="footer.getInTouch">Get In Touch</h4>
                     <ul class="contact-info">
                         <li>
-                            <i class="fa fa-envelope"></i>
-                            <a href="mailto:touchwebagency@gmail.com">touchwebagency@gmail.com</a>
+                            <span class="footer-contact-line">
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                                <a href="mailto:touchwebagency@gmail.com">touchwebagency@gmail.com</a>
+                            </span>
                         </li>
                         <li>
-                            <i class="fa fa-phone"></i>
-                            <a href="tel:+37495147963">+37495147963</a>
+                            <span class="footer-contact-line">
+                                <i class="fa fa-phone" aria-hidden="true"></i>
+                                <a href="tel:+37495147963">+37495147963</a>
+                            </span>
                         </li>
                         <li>
-                            <i class="fa fa-map-marker"></i>
-                            <span>Yerevan, Armenia</span>
+                            <span class="footer-contact-line">
+                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                <span data-translate="footer.location">Yerevan, Armenia</span>
+                            </span>
                         </li>
                     </ul>
                 </div>
@@ -794,7 +790,7 @@
             <div class="row clearfix">
                 <div class="footer-bottom-content">
                     <p id="copyright" data-translate="footer.copyright">Made with ❤️ by Touch Web Agency, Armenia</p>
-                    <p class="footer-year">&copy; <span id="current-year"></span> <span data-translate="footer.allRightsReserved">Touch Web Agency. All rights reserved.</span></p>
+                    <p class="footer-year"><span class="footer-year-brand">&copy; <span id="current-year"></span> Touch Web Agency.</span> <span data-translate="footer.allRightsReserved">All rights reserved.</span></p>
                 </div>
             </div>
         </div>

@@ -9,7 +9,7 @@
     <!--Meta Keywords and Description-->
     <meta name="keywords" content="web development pricing, web design prices, Armenia, Touch Web Agency">
     <meta name="description" content="Affordable web development pricing packages from Touch Web Agency in Armenia.">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
 
     <!--Favicon-->
     <link rel="shortcut icon" href="images/favicon.ico" title="Favicon"/>
@@ -19,6 +19,8 @@
 
     <!-- Touch Color CSS -->
     <link rel="stylesheet" href="css/touch-color.css">
+
+    <link rel="stylesheet" href="css/fluid-responsive.css">
 
     <!--Icon Fonts - Font Awesome Icons-->
     <link rel="stylesheet" href="css/font-awesome.min.css">
@@ -137,7 +139,6 @@
             <div class="col-38">
                 <div class="section-heading">
                     <h1 data-translate="nav.pricing">PRICING</h1>
-                    <h2 data-translate="banner.subtitle">Professional Web Development Services</h2>
                 </div>
             </div>
         </div><!--End of Row-->
@@ -163,7 +164,6 @@
                             <h3 data-translate="pricing.landing.name">Landing Pages</h3>
                             <p class="pricing-sub" data-translate="pricing.landing.subtitle">High-converting single page websites</p>
                             <div class="pricing">
-                                <div class="price"><span data-translate="pricing.startingFrom">Starting from</span> <span data-translate="pricing.landing.amount">50,000</span><span>֏</span></div>
                                 <p data-translate="pricing.landing.description">Perfect for campaigns, product launches, and lead generation</p>
                             </div>
                         </div>
@@ -193,7 +193,6 @@
                             <h3 data-translate="pricing.business.name">Business Website</h3>
                             <p class="pricing-sub" data-translate="pricing.business.subtitle">Complete online presence for your business</p>
                             <div class="pricing">
-                                <div class="price"><span data-translate="pricing.startingFrom">Starting from</span> <span data-translate="pricing.business.amount">200,000</span><span>֏</span></div>
                                 <p data-translate="pricing.business.description">Professional multi-page website with CMS</p>
                             </div>
                         </div>
@@ -224,7 +223,6 @@
                             <h3 data-translate="pricing.ecommerce.name">E-Commerce</h3>
                             <p class="pricing-sub" data-translate="pricing.ecommerce.subtitle">Full online store solution</p>
                             <div class="pricing">
-                                <div class="price"><span data-translate="pricing.startingFrom">Starting from</span> <span data-translate="pricing.ecommerce.amount">450,000</span><span>֏</span></div>
                                 <p data-translate="pricing.ecommerce.description">Complete e-commerce platform with payment integration</p>
                             </div>
                         </div>
@@ -311,16 +309,22 @@
                     <h4 data-translate="footer.getInTouch">Get In Touch</h4>
                     <ul class="contact-info">
                         <li>
-                            <i class="fa fa-envelope"></i>
-                            <a href="mailto:touchwebagency@gmail.com">touchwebagency@gmail.com</a>
+                            <span class="footer-contact-line">
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                                <a href="mailto:touchwebagency@gmail.com">touchwebagency@gmail.com</a>
+                            </span>
                         </li>
                         <li>
-                            <i class="fa fa-phone"></i>
-                            <a href="tel:+37495147963">+37495147963</a>
+                            <span class="footer-contact-line">
+                                <i class="fa fa-phone" aria-hidden="true"></i>
+                                <a href="tel:+37495147963">+37495147963</a>
+                            </span>
                         </li>
                         <li>
-                            <i class="fa fa-map-marker"></i>
-                            <span data-translate="footer.location">Yerevan, Armenia</span>
+                            <span class="footer-contact-line">
+                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                <span data-translate="footer.location">Yerevan, Armenia</span>
+                            </span>
                         </li>
                     </ul>
                 </div>
@@ -332,7 +336,7 @@
             <div class="row clearfix">
                 <div class="footer-bottom-content">
                     <p id="copyright" data-translate="footer.copyright">Made with ❤️ by Touch Web Agency, Armenia</p>
-                    <p class="footer-year">&copy; <span id="current-year"></span> <span data-translate="footer.allRightsReserved">Touch Web Agency. All rights reserved.</span></p>
+                    <p class="footer-year"><span class="footer-year-brand">&copy; <span id="current-year"></span> Touch Web Agency.</span> <span data-translate="footer.allRightsReserved">All rights reserved.</span></p>
                 </div>
             </div>
         </div>

@@ -74,6 +74,23 @@ a:hover, #header.nav-solid nav a:hover {
     color: #000 !important;
 }
 
+/* Mobile drawer social row (same treatment as header icons) */
+#nav-mobile .nav-mobile-panel .social-icons a,
+#nav-mobile .nav-mobile-panel .social-icons a:link,
+#nav-mobile .nav-mobile-panel .social-icons a:visited,
+#nav-mobile .nav-mobile-panel .social-icons a i,
+#nav-mobile .nav-mobile-panel .social-icons a .fa,
+#nav-mobile .nav-mobile-panel .social-icons a [class*="fa-"] {
+    color: #000 !important;
+}
+
+#nav-mobile .nav-mobile-panel .social-icons a:hover,
+#nav-mobile .nav-mobile-panel .social-icons a:hover i,
+#nav-mobile .nav-mobile-panel .social-icons a:hover .fa,
+#nav-mobile .nav-mobile-panel .social-icons a:hover [class*="fa-"] {
+    color: #000 !important;
+}
+
 
 /* Navigation Colors when the Navigation is sticky and solid */ 
 
@@ -157,7 +174,7 @@ a:hover, #header.nav-solid nav a:hover {
 
 body {
     font-family: 'Open Sans', sans-serif, Arial, Helvetica;
-    font-size:15px;
+    font-size: clamp(0.9375rem, 0.88rem + 0.2vw, 1rem);
     font-weight:normal;
     color:#111;
 }
@@ -185,15 +202,15 @@ body {
 
 #banner h1 {
     font-family: 'Open Sans', sans-serif, Arial, Helvetica;
-    font-size:62px;
-    line-height:60px;
+    font-size: clamp(2rem, 1.35rem + 3.2vw, 3.875rem);
+    line-height: clamp(1.15, 1.05 + 0.4vw, 1.2);
     font-weight:800;
     color:#111;
 }
 
 #banner h2 {
     font-family: 'Open Sans', sans-serif, Arial, Helvetica;
-    font-size:18px;
+    font-size: clamp(1rem, 0.92rem + 0.45vw, 1.125rem);
     font-weight:300;
     color:#111;
 }
@@ -203,14 +220,14 @@ body {
 
 .section-title {
     font-family: 'Open Sans', sans-serif, Arial, Helvetica;
-    font-size: 34px; 
+    font-size: clamp(1.375rem, 1.1rem + 1.4vw, 2.125rem);
     font-weight:700;
     color:#111;
 }
 
 .section-subtitle {
     font-family: 'Open Sans', sans-serif, Arial, Helvetica;
-    font-size: 16px;
+    font-size: clamp(0.9375rem, 0.88rem + 0.35vw, 1.125rem);
     font-weight:300;
     color:#9c9c9c;
 }
@@ -219,7 +236,7 @@ body {
 
 .testimonial q {
     font-family: 'Open Sans', sans-serif, Arial, Helvetica;
-    font-size: 17px; 
+    font-size: clamp(0.9375rem, 0.88rem + 0.35vw, 1.0625rem);
     font-weight:300;
 }
 
@@ -232,42 +249,42 @@ body {
 
 h1 {
     font-family: 'Open Sans', sans-serif, Arial, Helvetica;
-    font-size: 40px; 
+    font-size: clamp(1.75rem, 1.25rem + 2.5vw, 2.5rem);
     font-weight:300;
     color:#111;
 }
 
 h2 {
     font-family: 'Open Sans', sans-serif, Arial, Helvetica;
-    font-size: 34px; 
+    font-size: clamp(1.5rem, 1.15rem + 1.75vw, 2.125rem);
     font-weight:300;
     color:#111;
 }
 
 h3 {
     font-family: 'Open Sans', sans-serif, Arial, Helvetica;
-    font-size: 30px; 
+    font-size: clamp(1.35rem, 1.05rem + 1.5vw, 1.875rem);
     font-weight:700;
     color:#111;
 }
 
 h4 {
     font-family: 'Open Sans', sans-serif, Arial, Helvetica;
-    font-size: 18px; 
+    font-size: clamp(1rem, 0.92rem + 0.45vw, 1.125rem);
     font-weight:400;
     color:#111;
 }
 
 h5 {
     font-family: 'Open Sans', sans-serif, Arial, Helvetica;
-    font-size: 16px; 
+    font-size: clamp(0.9375rem, 0.88rem + 0.35vw, 1rem);
     font-weight:400;
     color:#111;
 }
 
 h6 {
     font-family: 'Open Sans', sans-serif, Arial, Helvetica;
-    font-size: 14px; 
+    font-size: clamp(0.8125rem, 0.78rem + 0.25vw, 0.875rem);
     font-weight:400;
     color:#111;
 }
@@ -284,7 +301,7 @@ h6 {
 
 .button, input[type="submit"]  {
     font-family: 'Open Sans', sans-serif, Arial, Helvetica;
-    font-size:14px;
+    font-size: clamp(0.8125rem, 0.78rem + 0.25vw, 0.9375rem);
     font-weight:bold;
     color:#111;
 }
@@ -312,7 +329,7 @@ h6 {
 
 #banner .button {
     font-family: 'Open Sans', sans-serif, Arial, Helvetica;
-    font-size:16px;
+    font-size: clamp(0.875rem, 0.82rem + 0.3vw, 1rem);
     color:#111;
 }
 
@@ -339,7 +356,7 @@ h6 {
 
 #landing-footer, #landing-footer p, #landing-footer a {
     font-family: 'Open Sans', sans-serif, Arial, Helvetica;
-    font-size:12px;
+    font-size: clamp(0.75rem, 0.72rem + 0.15vw, 0.8125rem);
     font-weight:normal;
     color:#999;
 }

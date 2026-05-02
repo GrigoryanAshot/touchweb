@@ -161,8 +161,6 @@ const translations = {
         },
         // Services Section
         services: {
-            testimonial: "Touch Web Agency transformed our online presence. Their expertise and professionalism exceeded our expectations.",
-            author: "— Client Name, Satisfied Customer",
             title: "BELIEVING",
             heading: "Focusing On What Matters Most",
             subtitle: "We believe in creating digital solutions that not only look great but also drive results for your business.",
@@ -270,7 +268,7 @@ const translations = {
                 maintenanceSupport: "Maintenance & Support"
             },
             location: "Yerevan, Armenia",
-            allRightsReserved: "Touch Web Agency. All rights reserved."
+            allRightsReserved: "All rights reserved."
         },
         // Contact Form
         contact: {
@@ -448,8 +446,6 @@ const translations = {
         },
         // Services Section
         services: {
-            testimonial: "Touch Web Agency-ն փոխակերպեց մեր առցանց ներկայությունը: Նրանց փորձառությունը և պրոֆեսիոնալիզմը գերազանցեցին մեր ակնկալիքները:",
-            author: "— Հաճախորդի Անուն, Գոհ Հաճախորդ",
             title: "ՀԱՎԱՏԱԼ",
             heading: "Կենտրոնանալով ամենակարևորի վրա",
             subtitle: "Մենք հավատում ենք թվային լուծումների ստեղծմանը, որոնք ոչ միայն գեղեցիկ են, այլև արդյունքներ են բերում ձեր բիզնեսի համար:",
@@ -557,7 +553,7 @@ const translations = {
                 maintenanceSupport: "Պահպանում և աջակցություն"
             },
             location: "Երևան, Հայաստան",
-            allRightsReserved: "Touch Web Agency. Բոլոր իրավունքները պաշտպանված են:"
+            allRightsReserved: "Բոլոր իրավունքները պաշտպանված են։"
         },
         // Contact Form
         contact: {
@@ -735,8 +731,6 @@ const translations = {
         },
         // Services Section
         services: {
-            testimonial: "Touch Web Agency преобразила наше онлайн-присутствие. Их опыт и профессионализм превзошли наши ожидания.",
-            author: "— Имя клиента, Довольный клиент",
             title: "ВЕРА",
             heading: "Фокусируясь на самом важном",
             subtitle: "Мы верим в создание цифровых решений, которые не только выглядят великолепно, но и приносят результаты для вашего бизнеса.",
@@ -844,7 +838,7 @@ const translations = {
                 maintenanceSupport: "Обслуживание и поддержка"
             },
             location: "Ереван, Армения",
-            allRightsReserved: "Touch Web Agency. Все права защищены."
+            allRightsReserved: "Все права защищены."
         },
         // Contact Form
         contact: {

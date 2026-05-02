@@ -9,7 +9,7 @@
     <!--Meta Keywords and Description-->
     <meta name="keywords" content="contact, web development, Armenia, Touch Web Agency">
     <meta name="description" content="Contact Touch Web Agency for professional web development services.">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
 
     <!--Favicon-->
     <link rel="shortcut icon" href="images/favicon.ico" title="Favicon"/>
@@ -19,6 +19,8 @@
 
     <!-- Touch Color CSS -->
     <link rel="stylesheet" href="css/touch-color.css">
+
+    <link rel="stylesheet" href="css/fluid-responsive.css">
 
     <!--Icon Fonts - Font Awesome Icons-->
     <link rel="stylesheet" href="css/font-awesome.min.css">
@@ -137,7 +139,6 @@
             <div class="col-38">
                 <div class="section-heading">
                     <h1 data-translate="nav.contact">CONTACT US</h1>
-                    <h2 data-translate="banner.subtitle">Professional Web Development Services</h2>
                 </div>
             </div>
         </div><!--End of Row-->
@@ -286,16 +287,22 @@
                     <h4 data-translate="footer.getInTouch">Get In Touch</h4>
                     <ul class="contact-info">
                         <li>
-                            <i class="fa fa-envelope"></i>
-                            <a href="mailto:touchwebagency@gmail.com">touchwebagency@gmail.com</a>
+                            <span class="footer-contact-line">
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                                <a href="mailto:touchwebagency@gmail.com">touchwebagency@gmail.com</a>
+                            </span>
                         </li>
                         <li>
-                            <i class="fa fa-phone"></i>
-                            <a href="tel:+37495147963">+37495147963</a>
+                            <span class="footer-contact-line">
+                                <i class="fa fa-phone" aria-hidden="true"></i>
+                                <a href="tel:+37495147963">+37495147963</a>
+                            </span>
                         </li>
                         <li>
-                            <i class="fa fa-map-marker"></i>
-                            <span data-translate="footer.location">Yerevan, Armenia</span>
+                            <span class="footer-contact-line">
+                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                <span data-translate="footer.location">Yerevan, Armenia</span>
+                            </span>
                         </li>
                     </ul>
                 </div>
@@ -307,7 +314,7 @@
             <div class="row clearfix">
                 <div class="footer-bottom-content">
                     <p id="copyright" data-translate="footer.copyright">Made with ❤️ by Touch Web Agency, Armenia</p>
-                    <p class="footer-year">&copy; <span id="current-year"></span> <span data-translate="footer.allRightsReserved">Touch Web Agency. All rights reserved.</span></p>
+                    <p class="footer-year"><span class="footer-year-brand">&copy; <span id="current-year"></span> Touch Web Agency.</span> <span data-translate="footer.allRightsReserved">All rights reserved.</span></p>
                 </div>
             </div>
         </div>
