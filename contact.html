@@ -340,7 +340,73 @@
 <script src="js/jquery.waypoints.min.js"></script>
 <script src="js/images-loaded.min.js"></script>
 <script src="js/lightbox.min.js"></script>
-<script src="js/site.js?v=contact-form-2"></script>
+<script src="js/site.js?v=contact-form-3"></script>
+<script>
+/* Form submit must not depend on jQuery/site.js ready — a full POST to this .html file causes HTTP 405 on static hosts. This is not an <a href="#"> issue; the # in the URL is just the page hash when the failed POST leaves you on contact.html. */
+(function () {
+	var form = document.getElementById("contact-form");
+	if (!form || form.getAttribute("data-touch-form-bound") === "1") {
+		return;
+	}
+	form.setAttribute("data-touch-form-bound", "1");
+	form.addEventListener("submit", function (e) {
+		e.preventDefault();
+		if (form.getAttribute("data-touch-sending") === "1") {
+			return;
+		}
+		form.setAttribute("data-touch-sending", "1");
+		var btn = form.querySelector('button[type="submit"]');
+		if (btn) {
+			btn.disabled = true;
+		}
+		var params = new URLSearchParams(new FormData(form));
+		function release() {
+			form.removeAttribute("data-touch-sending");
+			if (btn) {
+				btn.disabled = false;
+			}
+		}
+		fetch("https://formsubmit.co/ajax/touchwebagency@gmail.com", {
+			method: "POST",
+			headers: {
+				Accept: "application/json",
+				"Content-Type": "application/x-www-form-urlencoded"
+			},
+			body: params.toString()
+		})
+			.then(function (res) {
+				if (!res.ok) {
+					throw new Error(String(res.status));
+				}
+				return res.text();
+			})
+			.then(function () {
+				form.reset();
+				var col = form.parentElement;
+				if (col && !col.querySelector(".contact-form-success")) {
+					var p = document.createElement("p");
+					p.className = "contact-form-success";
+					p.setAttribute("data-translate", "contact.formSuccess");
+					p.setAttribute("role", "status");
+					p.style.cssText = "margin-bottom:1rem;padding:0.75rem 1rem;background:#e8f5e9;border:1px solid #a5d6a7;border-radius:6px;";
+					col.insertBefore(p, form);
+				}
+				if (typeof window.updatePageLanguage === "function") {
+					try {
+						window.updatePageLanguage();
+					} catch (ignore) {}
+				}
+				form.scrollIntoView({ behavior: "smooth", block: "start" });
+			})
+			.catch(function () {
+				window.alert("We could not send the message. Please email touchwebagency@gmail.com directly.");
+			})
+			.then(function () {
+				release();
+			});
+	});
+})();
+</script>
 
 </body>
 </html>

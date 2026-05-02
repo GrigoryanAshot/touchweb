@@ -261,76 +261,10 @@ function updatePageLanguage() {
 	document.documentElement.lang = currentLanguage;
 }
 
-$(document).ready(function () {
-	// Contact form must bind before updatePageLanguage(): if that function throws, we still
-	// intercept submit — otherwise the browser POSTs to this static page (HTTP 405 on Vercel).
-	var $contactForm = $("#contact-form");
-	if ($contactForm.length) {
-		$contactForm.on("submit", function (e) {
-			e.preventDefault();
-			var $form = $(this);
-			var $btn = $form.find('button[type="submit"]');
-			if ($form.data("submitting")) {
-				return;
-			}
-			$form.data("submitting", true);
-			$btn.prop("disabled", true);
-			var formEl = $form[0];
-			var params = new URLSearchParams(new FormData(formEl));
-			var release = function () {
-				$form.data("submitting", false);
-				$btn.prop("disabled", false);
-			};
-			fetch("https://formsubmit.co/ajax/touchwebagency@gmail.com", {
-				method: "POST",
-				headers: {
-					Accept: "application/json",
-					"Content-Type": "application/x-www-form-urlencoded"
-				},
-				body: params.toString()
-			})
-				.then(function (res) {
-					if (!res.ok) {
-						throw new Error("FormSubmit response " + res.status);
-					}
-					return res.text().then(function (text) {
-						if (!text) {
-							return {};
-						}
-						try {
-							return JSON.parse(text);
-						} catch (ignore) {
-							return {};
-						}
-					});
-				})
-				.then(function () {
-					formEl.reset();
-					if (!$(".contact-form-success").length) {
-						$form.before(
-							'<p class="contact-form-success" data-translate="contact.formSuccess" role="status" style="margin-bottom:1rem;padding:0.75rem 1rem;background:#e8f5e9;border:1px solid #a5d6a7;border-radius:6px;"></p>'
-						);
-					}
-					try {
-						updatePageLanguage();
-					} catch (ignore) {}
-					var top = $form.offset().top - 100;
-					if (top < 0) {
-						top = 0;
-					}
-					$("html, body").animate({ scrollTop: top }, 350);
-				})
-				.catch(function () {
-					window.alert(
-						"We could not send the message. Please email touchwebagency@gmail.com directly."
-					);
-				})
-				.then(function () {
-					release();
-				});
-		});
-	}
+// Contact page inline script calls this for translated success text (see contact.html).
+window.updatePageLanguage = updatePageLanguage;
 
+$(document).ready(function () {
 	if (window.location.search.indexOf("sent=1") !== -1) {
 		$("#contact-form").before(
 			'<p class="contact-form-success" data-translate="contact.formSuccess" role="status" style="margin-bottom:1rem;padding:0.75rem 1rem;background:#e8f5e9;border:1px solid #a5d6a7;border-radius:6px;"></p>'
