@@ -262,15 +262,6 @@ function updatePageLanguage() {
 }
 
 $(document).ready(function () {
-	// Contact form (FormSubmit): return URL after submit must be absolute
-	var $next = $("#contact-form-next");
-	if ($next.length) {
-		var path = window.location.pathname || "/contact.html";
-		if (path.indexOf(".") === -1) {
-			path = "/contact.html";
-		}
-		$next.val(window.location.origin + path.split("?")[0] + "?sent=1");
-	}
 	if (window.location.search.indexOf("sent=1") !== -1) {
 		$("#contact-form").before(
 			'<p class="contact-form-success" data-translate="contact.formSuccess" role="status" style="margin-bottom:1rem;padding:0.75rem 1rem;background:#e8f5e9;border:1px solid #a5d6a7;border-radius:6px;"></p>'
@@ -282,6 +273,47 @@ $(document).ready(function () {
 
 	// Initialize language
 	updatePageLanguage();
+
+	// Contact form: FormSubmit via AJAX — never POST to contact.html (static hosts return HTTP 405)
+	$("#contact-form").on("submit", function (e) {
+		e.preventDefault();
+		var $form = $(this);
+		var $btn = $form.find('button[type="submit"]');
+		if ($form.data("submitting")) {
+			return;
+		}
+		$form.data("submitting", true);
+		$btn.prop("disabled", true);
+		$.ajax({
+			url: "https://formsubmit.co/ajax/touchwebagency@gmail.com",
+			type: "POST",
+			data: $form.serialize(),
+			dataType: "json",
+			success: function () {
+				$form[0].reset();
+				if (!$(".contact-form-success").length) {
+					$form.before(
+						'<p class="contact-form-success" data-translate="contact.formSuccess" role="status" style="margin-bottom:1rem;padding:0.75rem 1rem;background:#e8f5e9;border:1px solid #a5d6a7;border-radius:6px;"></p>'
+					);
+				}
+				updatePageLanguage();
+				var top = $form.offset().top - 100;
+				if (top < 0) {
+					top = 0;
+				}
+				$("html, body").animate({ scrollTop: top }, 350);
+			},
+			error: function () {
+				window.alert(
+					"We could not send the message. Please email touchwebagency@gmail.com directly."
+				);
+			},
+			complete: function () {
+				$form.data("submitting", false);
+				$btn.prop("disabled", false);
+			}
+		});
+	});
 	
 	// Language switcher dropdown
 	$('.language-switcher-btn').on('click', function(e) {
