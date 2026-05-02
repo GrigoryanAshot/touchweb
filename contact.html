@@ -340,9 +340,9 @@
 <script src="js/jquery.waypoints.min.js"></script>
 <script src="js/images-loaded.min.js"></script>
 <script src="js/lightbox.min.js"></script>
-<script src="js/site.js?v=contact-form-3"></script>
+<script src="js/site.js?v=contact-form-4"></script>
 <script>
-/* Form submit must not depend on jQuery/site.js ready — a full POST to this .html file causes HTTP 405 on static hosts. This is not an <a href="#"> issue; the # in the URL is just the page hash when the failed POST leaves you on contact.html. */
+/* POST goes to same-origin /api/contact (local: server.js, Vercel: api/contact.js). Never POST to contact.html — static hosts return HTTP 405. file:// cannot call the API; run: npm install && npm start then open http://localhost:3000/contact.html */
 (function () {
 	var form = document.getElementById("contact-form");
 	if (!form || form.getAttribute("data-touch-form-bound") === "1") {
@@ -351,6 +351,16 @@
 	form.setAttribute("data-touch-form-bound", "1");
 	form.addEventListener("submit", function (e) {
 		e.preventDefault();
+		if (window.location.protocol === "file:") {
+			window.alert(
+				"This page was opened as a file (file://). The form needs the local server.\n\n" +
+					"1) In this folder run: npm install\n" +
+					"2) Copy .env.example to .env and set FORMSUBMIT_EMAIL\n" +
+					"3) Run: npm start\n" +
+					"4) Open: http://localhost:3000/contact.html"
+			);
+			return;
+		}
 		if (form.getAttribute("data-touch-sending") === "1") {
 			return;
 		}
@@ -366,10 +376,10 @@
 				btn.disabled = false;
 			}
 		}
-		fetch("https://formsubmit.co/ajax/touchwebagency@gmail.com", {
+		var submitUrl = window.location.origin + "/api/contact";
+		fetch(submitUrl, {
 			method: "POST",
 			headers: {
-				Accept: "application/json",
 				"Content-Type": "application/x-www-form-urlencoded"
 			},
 			body: params.toString()
@@ -378,7 +388,9 @@
 				if (!res.ok) {
 					throw new Error(String(res.status));
 				}
-				return res.text();
+				return res.json().catch(function () {
+					return {};
+				});
 			})
 			.then(function () {
 				form.reset();
