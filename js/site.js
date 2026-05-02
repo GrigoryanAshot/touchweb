@@ -251,6 +251,7 @@ function updatePageLanguage() {
 		$('[data-translate-placeholder="contact.subjectPlaceholder"]').attr('placeholder', t.contact.subjectPlaceholder);
 		$('[data-translate-placeholder="contact.messagePlaceholder"]').attr('placeholder', t.contact.messagePlaceholder);
 		$('[data-translate="contact.sendButton"]').text(t.contact.sendButton);
+		$('[data-translate="contact.formSuccess"]').text(t.contact.formSuccess);
 		$('[data-translate="contact.address"]').text(t.contact.address);
 		$('[data-translate="contact.phone"]').text(t.contact.phone);
 		$('[data-translate="contact.email"]').text(t.contact.email);
@@ -261,6 +262,24 @@ function updatePageLanguage() {
 }
 
 $(document).ready(function () {
+	// Contact form (FormSubmit): return URL after submit must be absolute
+	var $next = $("#contact-form-next");
+	if ($next.length) {
+		var path = window.location.pathname || "/contact.html";
+		if (path.indexOf(".") === -1) {
+			path = "/contact.html";
+		}
+		$next.val(window.location.origin + path.split("?")[0] + "?sent=1");
+	}
+	if (window.location.search.indexOf("sent=1") !== -1) {
+		$("#contact-form").before(
+			'<p class="contact-form-success" data-translate="contact.formSuccess" role="status" style="margin-bottom:1rem;padding:0.75rem 1rem;background:#e8f5e9;border:1px solid #a5d6a7;border-radius:6px;"></p>'
+		);
+		if (window.history && window.history.replaceState) {
+			window.history.replaceState({}, document.title, window.location.pathname);
+		}
+	}
+
 	// Initialize language
 	updatePageLanguage();
 	

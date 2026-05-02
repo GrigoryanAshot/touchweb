@@ -282,7 +282,8 @@ const translations = {
             sendButton: "SEND MESSAGE",
             address: "Address",
             phone: "Phone",
-            email: "Email"
+            email: "Email",
+            formSuccess: "Thank you! Your message was sent. We will get back to you soon."
         }
     },
     hy: {
@@ -567,7 +568,8 @@ const translations = {
             sendButton: "ՈՒՂԱՐԿԵԼ ՀԱՂՈՐԴԱԳՐՈՒԹՅՈՒՆ",
             address: "Հասցե",
             phone: "Հեռախոս",
-            email: "Էլ. փոստ"
+            email: "Էլ. փոստ",
+            formSuccess: "Շնորհակալություն։ Հաղորդագրությունը ուղարկված է։ Շուտով կկապնվենք ձեզ հետ։"
         }
     },
     ru: {
@@ -852,7 +854,8 @@ const translations = {
             sendButton: "ОТПРАВИТЬ СООБЩЕНИЕ",
             address: "Адрес",
             phone: "Телефон",
-            email: "Email"
+            email: "Email",
+            formSuccess: "Спасибо! Сообщение отправлено. Мы скоро свяжемся с вами."
         }
     }
 };
