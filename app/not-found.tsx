@@ -1,16 +1,14 @@
-import Link from "next/link";
-
 export default function NotFound() {
   return (
     <main className="container hero">
       <h1>404</h1>
       <p className="lead">Touch Web Agency</p>
       <p>
-        <Link href="/hy">Հայերեն</Link>
+        <a href="/hy">Հայերեն</a>
         {" · "}
-        <Link href="/ru">Русский</Link>
+        <a href="/ru">Русский</a>
         {" · "}
-        <Link href="/en">English</Link>
+        <a href="/en">English</a>
       </p>
     </main>
   );
