@@ -1,5 +1,5 @@
 import { NextResponse, type NextRequest } from "next/server";
-import { INDEXABLE_PATHS, defaultLocale, isLocale, splitLocale } from "@/lib/seo/site";
+import { INDEXABLE_PATHS, defaultLocale, isLocale, splitLocale } from "./lib/seo/site";
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
@@ -28,5 +28,6 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
+  runtime: "nodejs",
   matcher: ["/((?!_next/static|_next/image|favicon.ico|images/|.*\\..*).*)"],
 };
